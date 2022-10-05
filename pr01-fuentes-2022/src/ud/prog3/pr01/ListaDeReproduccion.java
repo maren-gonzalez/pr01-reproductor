@@ -113,6 +113,16 @@ public class ListaDeReproduccion implements ListModel<String> {
 		filtroFicheros = filtroFicheros.replaceAll( "\\.", "\\\\." );  // Pone el sÃ­mbolo de la expresiÃ³n regular \. donde figure un .
 		filtroFicheros = filtroFicheros.replaceAll( "\\*", "\\.*" );
 		logger.log( Level.INFO, "Añadiendo ficheros con filtro " + filtroFicheros );
+		
+		//R
+		File fInic = new File(carpetaFicheros); 
+		 if (fInic.isDirectory()) { 
+		 for( File f : fInic.listFiles() ) { 
+		 logger.log( Level.FINE, "Procesando fichero " + f.getName() ); 
+		 // TODO: Comprobar que f.getName() cumple el patrón y añadirlo a la lista 
+		 } 
+		 } 
+		
 		return 0;
 	}
 	
