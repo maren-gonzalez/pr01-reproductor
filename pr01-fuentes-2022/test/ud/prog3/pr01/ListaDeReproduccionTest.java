@@ -68,6 +68,16 @@ public class ListaDeReproduccionTest {
 			 System.out.println("Fail");
 		 }
 	 }
+	 
+	 //Testear el filtro replaceAll
+	 @Test
+	 public void addCarpeta() { 
+		 String carpetaTest = "test/res/"; 
+		 String filtroTest = "*Pentatonix*.mp4";
+		 ListaDeReproduccion lr = new ListaDeReproduccion(); 
+		 lr.add( carpetaTest, filtroTest ); 
+		 fail( "Método sin acabar" ); 
+	} 
 	
 	@After 
 	 public void tearDown() { 
