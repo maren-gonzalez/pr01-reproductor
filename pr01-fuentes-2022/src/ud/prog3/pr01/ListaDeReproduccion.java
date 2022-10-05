@@ -1,7 +1,9 @@
 package ud.prog3.pr01;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.logging.FileHandler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -21,6 +23,19 @@ public class ListaDeReproduccion implements ListModel<String> {
 	int ficheroEnCurso = -1;           // Fichero seleccionado (-1 si no hay ninguno seleccionado)
 	private static Logger logger = 
 			Logger.getLogger( ListaDeReproduccion.class.getName() );
+	
+	
+	//Guardar log en fichero
+	private static final boolean ANYADIR_A_FIC_LOG = false; // poner true para no sobreescribir 
+		static { 
+			 try { 
+				 logger.addHandler( new FileHandler( 
+				 ListaDeReproduccion.class.getName()+".log.xml", ANYADIR_A_FIC_LOG )); 
+			 } catch (SecurityException | IOException e) { 
+				 logger.log( Level.SEVERE, "Error en creaci�n fichero log" ); 
+		 } 
+	} 
+	
 	
 	/** Constructor de lista de reproducción, crea una lista vacía
 	 */
